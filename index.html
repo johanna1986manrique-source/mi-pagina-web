@@ -176,7 +176,7 @@
 
     <aside class="sidebar">
         <div class="brand-section">
-            <img src="./escudo.jpg" alt="Escudo Oficial UTEE" class="escudo-img">
+            <img src="escudo.jpg" alt="Escudo Oficial UTEE" class="escudo-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150'">
             <span class="badge-role" id="badgeRolUI">COMANDANTE</span>
             <div class="unit-title">CENTRO DE MANDO Y CONTROL</div>
         </div>
@@ -288,20 +288,13 @@
                         </div>
                         <div class="operator-profile" id="avatarBox">
                             <div class="operator-img-container">
-                                <!-- Ilustración o Imagen Vectorial del Rescatista (Uniforme Verde, Cintas Reflectivas y Boina Amarilla) -->
                                 <svg class="operator-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Fondo Táctico -->
                                     <circle cx="50" cy="50" r="50" fill="#0d2b18"/>
-                                    <!-- Hombros y Torso (Uniforme Verde Táctico) -->
                                     <path d="M 20 95 C 20 70, 35 60, 50 60 C 65 60, 80 70, 80 95 Z" fill="#1b4d2e"/>
-                                    <!-- Cintas Reflectivas (Gris Brillante / Amarillo Alta Visibilidad) -->
                                     <rect x="30" y="72" width="40" height="6" rx="3" fill="#ffab00" opacity="0.9"/>
                                     <rect x="35" y="83" width="30" height="4" rx="2" fill="#e2e8f0" opacity="0.9"/>
-                                    <!-- Cuello y Rostro -->
                                     <circle cx="50" cy="42" r="16" fill="#d2a17e"/>
-                                    <!-- Casaca / Solapas -->
                                     <polygon points="50,60 40,75 60,75" fill="#143821"/>
-                                    <!-- Boina Amarilla UTEE con Insignia -->
                                     <path d="M 32 36 C 30 20, 70 20, 68 36 C 65 42, 35 42, 32 36 Z" fill="#ffab00"/>
                                     <circle cx="50" cy="28" r="4" fill="#00a8ff"/>
                                 </svg>
@@ -468,24 +461,14 @@
                 </div>
                 <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px;">
                     <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
-                        <h4 style="font-size: 0.82rem; margin-bottom: 12px; color: white;"><i class="fas fa-satellite-dish text-yellow"></i> Configuración de Credenciales Telegram Bot</h4>
+                        <h4 style="font-size: 0.82rem; margin-bottom: 12px; color: white;"><i class="fas fa-satellite-dish text-yellow"></i> Credenciales Telegram Bot Configuradas</h4>
                         
-                        <div>
-                            <label style="font-size: 0.68rem; color: var(--text-muted);">TELEGRAM BOT TOKEN</label>
-                            <input type="text" id="tgToken" class="form-control" placeholder="Ej. 123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ">
+                        <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px;">
+                            • <b>Bot Token:</b> 9242196906:AAGzobvNPIzC6zYU...<br>
+                            • <b>Chat ID Grupo:</b> -5010378531
                         </div>
-                        <div>
-                            <label style="font-size: 0.68rem; color: var(--text-muted);">CHAT ID (Canal o Grupo UTEE)</label>
-                            <input type="text" id="tgChatId" class="form-control" placeholder="Ej. -1001234567890 o @SalaSituacionalUTEE">
-                        </div>
-
-                        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 15px 0;">
 
                         <h4 style="font-size: 0.82rem; margin-bottom: 10px; color: white;"><i class="fas fa-play-circle text-green"></i> Disparadores Manuales de Rutinas Programadas</h4>
-                        <div style="font-size: 0.73rem; color: var(--text-muted); margin-bottom: 10px;">
-                            Puedes verificar y disparar de inmediato las transmisiones programadas hacia el canal de Telegram:
-                        </div>
-
                         <button class="btn-telegram" onclick="enviarReporteManual('0600')"><i class="fas fa-cloud-sun-rain"></i> FORZAR ACTUALIZACIÓN CLIMATOGRÁFICA (06:00)</button>
                         <button class="btn-telegram" style="background: var(--accent-yellow); color: #000;" onclick="enviarReporteManual('2100')"><i class="fas fa-clipboard-check"></i> FORZAR RECUENTO DEL DÍA (21:00)</button>
                     </div>
@@ -494,9 +477,9 @@
                         <div class="panel-header" style="margin-bottom: 8px;"><span>ESTADO DE RUTINAS Y BITÁCORA</span></div>
                         <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); max-height: 350px; overflow-y: auto; font-size: 0.78rem; line-height: 1.5; color: var(--text-main);">
                             🟢 <b>Cron Operativo UTEE:</b><br>
-                            • Rutina 06:00 (Climatografía / Clima / Ondas): <b>Armada</b><br>
-                            • Rutina 21:00 (Recuento del Día / Sismos M≥4.5): <b>Armada</b><br><br>
-                            <span style="color: var(--accent-green);">Sesión independiente activa.</span>
+                            • Rutina 06:00 (Climatografía): <b>Armada (-5010378531)</b><br>
+                            • Rutina 21:00 (Recuento del Día): <b>Armada (-5010378531)</b><br><br>
+                            <span style="color: var(--accent-green);">Conectado a la API oficial de Telegram.</span>
                         </div>
                     </div>
                 </div>
@@ -822,13 +805,8 @@
         }
 
         function enviarMensajeTelegramDirecto(tipoReporte, tituloHeader) {
-            const token = document.getElementById('tgToken').value.trim();
-            const chatId = document.getElementById('tgChatId').value.trim();
-
-            if (!token || !chatId) {
-                console.log('Aviso Cron: Faltan credenciales de Telegram.');
-                return;
-            }
+            const token = "9242196906:AAGzobvNPIzC6zYU9i3uaVgGtiil1I19qoA";
+            const chatId = "-5010378531";
 
             let textoReporte = tipoReporte === 'CLIMATOGRAFICA' 
                 ? `🌦️ *ACTUALIZACIÓN CLIMATOGRÁFICA (UTEE)*\n🕒 ${new Date().toLocaleString()}\n• Ondas Tropicales activas\n• Fenómeno El Niño en Fase Neutral\n• Cuencas hidrográficas estables.\n\n_Venezuela Renace, segundos para actuar, vidas para salvar._`
@@ -841,7 +819,11 @@
             })
             .then(res => res.json())
             .then(data => {
-                if (data.ok) alert(`¡Reporte programado enviado con éxito a Telegram!`);
+                if (data.ok) {
+                    alert(`¡Reporte programado enviado con éxito al canal de Telegram (-5010378531)!`);
+                } else {
+                    alert(`Error de Telegram: ${data.description || 'Verifique permisos del bot en el grupo.'}`);
+                }
             })
             .catch(err => console.error(err));
         }
