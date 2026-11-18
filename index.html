@@ -199,7 +199,7 @@
         <header class="top-header">
             <div class="header-titles">
                 <h1>SALA SITUACIONAL DE LA UNIDAD DE TAREA ESPECIAL DE EMERGENCIAS GRAN MARISCAL DE AYACUCHO ANTONIO JOSÉ DE SUCRE</h1>
-                <p>Monitoreo Global (USGS M≥2.0 & Tsunamis), CAP Protocol, Red Sanitaria, SEN y Telegram</p>
+                <p>Monitoreo Global (USGS M≥1.0 & Tsunamis), CAP Protocol, Red Sanitaria, SEN y Telegram</p>
             </div>
             
             <div class="auth-bar">
@@ -221,8 +221,8 @@
             <section class="status-grid">
                 <div class="status-card">
                     <i class="fas fa-house-damage text-blue"></i>
-                    <h4>SISMOS ≥2.0 (MGI)</h4>
-                    <div class="state text-green" id="statusSismo">MONITOREANDO M≥2.0</div>
+                    <h4>SISMOS ≥1.0 (MGI)</h4>
+                    <div class="state text-green" id="statusSismo">MONITOREANDO M≥1.0</div>
                 </div>
                 <div class="status-card">
                     <i class="fas fa-cloud-sun-rain text-yellow"></i>
@@ -263,7 +263,7 @@
                         </div>
                         <div class="api-monitor-grid">
                             <div class="api-badge">
-                                <span>USGS Feed M≥2.0</span>
+                                <span>USGS Feed M≥1.0</span>
                                 <div><span id="dotUsgs" class="api-dot active"></span> <small id="txtUsgs">Sincronizado</small></div>
                             </div>
                             <div class="api-badge">
@@ -314,7 +314,7 @@
                         <div class="panel-header"><span>FEED DE ALERTAS CAP EN TIEMPO REAL</span></div>
                         <div class="alert-item" id="feedAlertasContainer">
                             <strong class="text-green">[AUTOMATIZACIÓN CRON] Rutinas 06:00 y 21:00 Habilitadas</strong><br>
-                            🌍 <strong>Monitoreo M≥2.0 & Clima</strong> - Sincronizado
+                            🌍 <strong>Monitoreo M≥1.0 & Clima</strong> - Sincronizado
                         </div>
                         
                         <button class="alarm-btn" onclick="activarAlertaSimultanea()"><i class="fas fa-broadcast-tower"></i> ACTIVAR ALARMA Y RESCATISTA</button>
@@ -752,8 +752,8 @@
         }
 
         function iniciarMonitoreoSimultaneoAPIs() {
-            // Filtro actualizado a M >= 2.0 (feed de sismos significativos o moderados de la hora)
-            fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.0_hour.geojson')
+            // Conectado al feed del USGS con umbral M >= 1.0 (última hora)
+            fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_hour.geojson')
                 .then(response => response.json())
                 .then(data => {
                     if (data && data.features && data.features.length > 0) {
@@ -761,11 +761,11 @@
                         document.getElementById('statusSismo').innerText = `M ${sismo.properties.mag} DETECTADO`;
                         document.getElementById('statusSismo').style.color = 'var(--accent-red)';
                     } else {
-                        document.getElementById('statusSismo').innerText = 'SISMOS M≥2.0 NORMALES';
+                        document.getElementById('statusSismo').innerText = 'SISMOS M≥1.0 NORMALES';
                     }
                 })
                 .catch(() => {
-                    document.getElementById('statusSismo').innerText = 'ENLACE M≥2.0 ACTIVO';
+                    document.getElementById('statusSismo').innerText = 'ENLACE M≥1.0 ACTIVO';
                 });
         }
 
@@ -811,7 +811,7 @@
 
             let textoReporte = tipoReporte === 'CLIMATOGRAFICA' 
                 ? `🌦️ *ACTUALIZACIÓN CLIMATOGRÁFICA (UTEE)*\n🕒 ${new Date().toLocaleString()}\n• Ondas Tropicales activas\n• Fenómeno El Niño en Fase Neutral\n• Cuencas hidrográficas estables.\n\n_Venezuela Renace, segundos para actuar, vidas para salvar._`
-                : `📋 *RECUENTO CONSOLIDADO DEL DÍA (UTEE)*\n🕒 ${new Date().toLocaleString()}\n• Sismicidad M≥2.0 monitoreada\n• REDSALUD y SEN operativos.\n\n_Venezuela Renace, segundos para actuar, vidas para salvar._`;
+                : `📋 *RECUENTO CONSOLIDADO DEL DÍA (UTEE)*\n🕒 ${new Date().toLocaleString()}\n• Sismicidad M≥1.0 monitoreada\n• REDSALUD y SEN operativos.\n\n_Venezuela Renace, segundos para actuar, vidas para salvar._`;
 
             fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
                 method: 'POST',
