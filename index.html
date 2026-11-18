@@ -465,7 +465,7 @@
                         
                         <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px;">
                             • <b>Bot Token:</b> 9242196906:AAGzobvNPIzC6zYU...<br>
-                            • <b>Chat ID Grupo:</b> -5010378531
+                            • <b>Chat ID Grupo:</b> -1005010378531
                         </div>
 
                         <h4 style="font-size: 0.82rem; margin-bottom: 10px; color: white;"><i class="fas fa-play-circle text-green"></i> Disparadores Manuales de Rutinas Programadas</h4>
@@ -477,8 +477,8 @@
                         <div class="panel-header" style="margin-bottom: 8px;"><span>ESTADO DE RUTINAS Y BITÁCORA</span></div>
                         <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); max-height: 350px; overflow-y: auto; font-size: 0.78rem; line-height: 1.5; color: var(--text-main);">
                             🟢 <b>Cron Operativo UTEE:</b><br>
-                            • Rutina 06:00 (Climatografía): <b>Armada (-5010378531)</b><br>
-                            • Rutina 21:00 (Recuento del Día): <b>Armada (-5010378531)</b><br><br>
+                            • Rutina 06:00 (Climatografía): <b>Armada (-1005010378531)</b><br>
+                            • Rutina 21:00 (Recuento del Día): <b>Armada (-1005010378531)</b><br><br>
                             <span style="color: var(--accent-green);">Conectado a la API oficial de Telegram.</span>
                         </div>
                     </div>
@@ -807,7 +807,7 @@
 
         function enviarMensajeTelegramDirecto(tipoReporte, tituloHeader) {
             const token = "9242196906:AAGzobvNPIzC6zYU9i3uaVgGtiil1I19qoA";
-            const chatId = "-5010378531";
+            const chatId = "-1005010378531";
 
             let textoReporte = tipoReporte === 'CLIMATOGRAFICA' 
                 ? `🌦️ *ACTUALIZACIÓN CLIMATOGRÁFICA (UTEE)*\n🕒 ${new Date().toLocaleString()}\n• Ondas Tropicales activas\n• Fenómeno El Niño en Fase Neutral\n• Cuencas hidrográficas estables.\n\n_Venezuela Renace, segundos para actuar, vidas para salvar._`
@@ -821,7 +821,7 @@
             .then(res => res.json())
             .then(data => {
                 if (data.ok) {
-                    alert(`¡Reporte programado enviado con éxito al canal de Telegram (-5010378531)!`);
+                    alert(`¡Reporte programado enviado con éxito al supergrupo de Telegram (-1005010378531)!`);
                 } else {
                     alert(`Error de Telegram: ${data.description || 'Verifique permisos del bot en el grupo.'}`);
                 }
